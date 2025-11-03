@@ -1,28 +1,42 @@
-import { useState } from 'react'
+import Hero from './components/Hero';
+import About from './components/About';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen bg-neutral-950 text-white selection:bg-orange-500/30">
+      {/* Top nav */}
+      <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-neutral-950/70 border-b border-white/10">
+        <div className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
+          <a href="#home" className="font-extrabold tracking-tight text-white">
+            <span className="text-orange-400">忍</span> Backend Portfolio
+          </a>
+          <nav className="hidden sm:flex items-center gap-6 text-sm text-white/70">
+            <a href="#about" className="hover:text-white">About</a>
+            <a href="#projects" className="hover:text-white">Projects</a>
+            <a href="#contact" className="hover:text-white">Contact</a>
+          </nav>
         </div>
-      </div>
+      </header>
+
+      {/* Main content */}
+      <main>
+        <Hero />
+        <About />
+        <Projects />
+        <Contact />
+      </main>
+
+      {/* Footer with Naruto flair */}
+      <footer className="py-10 border-t border-white/10">
+        <div className="mx-auto max-w-6xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-white/60 text-sm">© {new Date().getFullYear()} Your Name. Made with chakra and caffeine.</p>
+          <div className="text-white/50 text-sm">🍥 🦊 🌀 Believe it!</div>
+        </div>
+      </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
